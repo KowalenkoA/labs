@@ -1,16 +1,61 @@
-.promo {
-    width: 100%;
-    min-height: 25%;
-    max-height: 25%;
-    border: 1px solid black;
-}
-.col-pd0{
+.col-pd0 {
     padding-left: 0px;
     padding-right: 0px;
 }
 
-.row-custom{
+.row-custom {
     margin: 0px;
+}
+
+.header-menu li {
+    font-size: 14px;
+}
+
+.header-menu a {
+    color: #1b1b1b;
+    text-decoration: none;
+}
+
+.header-menu a:hover {
+    color: #ce1717;
+}
+
+.tac {
+    text-align: center;
+}
+
+.header-sec-menu {
+    font-size: 16px;
+}
+
+.header-sec-menu li {
+    font-size: 16px;
+}
+
+.promo {
+    height: 450px;
+    width: 100%;
+}
+
+@media screen and (max-width: 700px) {
+    .promo {
+        height: 250px;
+    }
+}
+
+@media screen and (min-width: 700px) and (max-width: 986px) {
+    .promo {
+        height: 300px;
+    }
+}
+
+.card-custom a {
+    text-decoration: none;
+    color: #1b1b1b;
+}
+
+.card-body-custom {
+    padding: 10px;
 }
 
 /*.ml-10{
