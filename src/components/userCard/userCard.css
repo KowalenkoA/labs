@@ -1,0 +1,30 @@
+.dfr {
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+}
+
+.dfc {
+    display: flex;
+    flex-direction: column;
+
+    margin-left: 30px;
+}
+
+.userCard{
+    width: 800px;
+    margin-top: 10px;
+    padding: 5px;
+    
+    color: #353535;
+    border: 1px solid #1b0f46;
+    background-color: #b4b4b4;
+    border-radius: 10px;
+}
+
+.userCard:hover {
+    background-color: #7da1b1;
+    border: 1px solid #48328d;
+    transition: all 0.5s;
+}

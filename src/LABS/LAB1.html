@@ -1,0 +1,99 @@
+<!DOCTYPE HTML >
+<html>
+    <head>
+        <title>Вычисление квадратного уравнения</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <script>
+            function reshenie(){
+                // объявляем все пременные a,b,c,x1,x2 - соотвественно
+                let a = 0;
+                let b = 0;
+                let c = 0;
+                let d = 0; // дискриминант
+                let x1 = 0;
+                let x2 = 0;
+                let otvet = '';
+                // блок с условиями, поля не должны быть пустыми или в них не должен стоять 0
+                if (document.form.A.value !== '' && Number(document.form.A.value) !== 0){
+                    a = document.form.A.value
+                }else{
+                    alert('А - не введено!')
+                    return;
+                }
+                if (document.form.B.value !== ''  && Number(document.form.B.value) !== 0){
+                    b = document.form.B.value
+                }else{
+                    alert('B - не введено!')
+                    return;
+                }
+                if (document.form.C.value !== '' && Number(document.form.C.value) !== 0){
+                    c = document.form.C.value
+                }else{
+                    alert('C - не введено!')
+                    return;
+                }
+                d = (b * b) - (4 * a * c); // считаем дискриминант
+                if (d < 0){ // дискриминант меньше нуля
+                    document.getElementById('disc').textContent = 'Уравнение не имеет корней'
+                }else if (d === 0){ // дискриминант равен нулю
+                    document.getElementById('disc').textContent = 'Уравнение имеет 1 корень';
+                    x1 = (-b + Math.sqrt(d)) /( 2 * a); // считаем х1
+                    document.getElementById('x1').textContent = 'X = ' + x1; // выводим  х1 в label с id = "х1"
+                    document.getElementById('x2').textContent = '';
+                }else if (d > 0){ // дискриминант больше нуля
+                    document.getElementById('disc').textContent = 'Уравнение имеет 2 корня'
+                    x1 = (-b + Math.sqrt(d)) /( 2 * a)
+                    x2 = (-b - Math.sqrt(d)) /( 2 * a)
+                    document.getElementById('x1').textContent = 'X1 = ' + x1;
+                    document.getElementById('x2').textContent = 'X2 = ' + x2;
+                }
+                // формируем в label c id = 'otvet' выводимое уравнение
+                if (b > 0){
+                    otvet += a + 'x^2 + ' + b + 'x';
+                }else{
+                    otvet += a + 'x^2 - ' + Math.abs(b) + 'x';
+                }
+                if (c > 0){
+                    otvet += ' + ' + c + '=0'
+                }else{
+                    otvet += ' - ' + Math.abs(c) + '=0'
+                }
+                document.getElementById('otvet').textContent = otvet;
+            }
+
+            //функция сброса формы
+            function sbros (){
+                document.form.reset()
+                document.getElementById('x1').textContent = '';
+                document.getElementById('x2').textContent = '';
+                document.getElementById('otvet').textContent = '';
+                document.getElementById('disc').textContent = '';
+            }
+        </script>
+    </head>
+    <style type="text/css">
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+    <body>
+        <b>Решение квадратного уравнения a&middot;x&sup2; + b&middot;x + c = 0</b>
+        <form name="form">
+            Введите данные для решения квадратного уравнения:<br><br>
+            A = <input type="number" name="A" size="4">&nbsp;&nbsp;&nbsp;&nbsp;
+            B = <input type="number" name="B" size="4">&nbsp;&nbsp;&nbsp;&nbsp;
+            C = <input type="number" name="C" size="4">&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
+            <input type="button" value="Вывести" onClick="reshenie()" />
+            <input type="button" value="Сброс" onClick="sbros()" /><br><br>
+            <label id='disc'></label><br><br>
+            <label id='otvet'></label><br><br>
+            <label id='x1'></label>&nbsp;&nbsp;&nbsp;&nbsp;
+            <label id='x2'></label><br><br>
+        </form>
+    </body>
+</html>
